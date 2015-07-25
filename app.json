@@ -1,0 +1,12 @@
+/** application parameters of some sort */
+{
+  "name": "RE01",
+  "description": "Based on the React tutorial",
+  "keywords": [ "react", "reactjs" ],
+  "repository": "https://github.com/JeffRisberg/RE01",
+  "success_url": "/",
+  "env" : {
+    "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-nodejs.git"
+  }
+}
+
