@@ -10,10 +10,11 @@ var app = express();
 app.set('port', (process.env.PORT || 3000));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-/** return a list of comments */
+/** Return a list of comments */
 app.get('/comments.json', function (req, res) {
     fs.readFile('comments.json', function (err, data) {
         res.setHeader('Cache-Control', 'no-cache');
@@ -21,7 +22,7 @@ app.get('/comments.json', function (req, res) {
     });
 });
 
-/** handle posting of a new comment */
+/** Handle posting of a new comment */
 app.post('/comments.json', function (req, res) {
     fs.readFile('comments.json', function (err, data) {
         var comments = JSON.parse(data);
