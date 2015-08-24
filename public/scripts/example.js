@@ -14,7 +14,7 @@ var Comment = React.createClass({
     }
 });
 
-/** Show the main display (list plus form */
+/** Show the main display (list plus form) */
 var CommentBox = React.createClass({
     loadCommentsFromServer: function () {
         $.ajax({
@@ -110,7 +110,7 @@ var CommentForm = React.createClass({
     }
 });
 
-/** request the main rendering here */
+/** Request the main rendering here */
 React.render(
     <CommentBox url="comments.json" pollInterval={2000}/>,
     document.getElementById('content')
