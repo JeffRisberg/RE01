@@ -2,14 +2,34 @@ class UserList extends React.Component {
     constructor() {
         super();
 
-        this.userList = [
-            {"fname": "Sara", "lname": "Smith"},
-            {"fname": "Dave", "lname": "Stone"},
-            {"fname": "John", "lname": "Jones"},
-            {"fname": "Kate", "lname": "Tread"}
-        ];
-
+        this.getUsersFromLocalStorage();
         this.addUser = this.addUser.bind(this);
+    }
+
+    getUsersFromLocalStorage() {
+        this.userList = JSON.parse(localStorage.getItem('users'));
+        console.log("found local storage userList: "+this.userList);
+
+        if(this.userList == null) {
+            this.userList = [
+                {fname: 'Sara', lname: 'Smith'},
+                {fname: 'Dave', lname: "Thomas"},
+                {fname: 'John', lname: 'Hill'},
+                {fname: 'Sally', lname: "Jones"}
+            ];
+
+            console.log("initialized userList: "+this.userList);
+        }
+
+        console.log("length of userList: "+this.userList.length);
+    }
+
+    saveUsersLocalStorage() {
+        localStorage.setItem('users', JSON.stringify(this.userList));
+    }
+
+    deleteUsersLocalStorage() {
+        localStorage.setItem('users', null);
     }
 
     componentDidMount() {
@@ -28,6 +48,16 @@ class UserList extends React.Component {
         this.userList.push(entry);
     }
 
+    saveUsers() {
+        console.log("saving this.userList to local storage");
+        this.saveUsersLocalStorage();
+    }
+
+    deleteUsers() {
+        console.log("deleting userList from storage");
+        this.deleteUsersLocalStorage();
+    }
+
     render() {
         return (
             <div>
@@ -37,6 +67,9 @@ class UserList extends React.Component {
                 <input ref="fname" type="text" onChange={this.updateUser}/>
                 <input ref="lname" type="text"/>
                 <button onClick={this.addUser}>Add User</button>
+                <br/>
+                <button onClick={this.saveUsers}>Save Users</button>
+                <button onClick={this.deleteUsers}>Delete Users</button>
             </div>
         )
     }
