@@ -76,7 +76,7 @@ class UserList extends React.Component {
         });
         console.log(index);
 
-        if (index > 0) {
+        if (index >= 0) {
             this.setState({user: ""}); // cause a refresh
             this.userList.splice(index, 1)
         }
