@@ -4,13 +4,16 @@ class UserList extends React.Component {
 
         this.getUsersFromLocalStorage();
         this.addUser = this.addUser.bind(this);
+        this.saveUsers = this.saveUsers.bind(this);
+        this.deleteUsers = this.deleteUsers.bind(this);
+        this.deleteUser = this.deleteUser.bind(this);
     }
 
     getUsersFromLocalStorage() {
         this.userList = JSON.parse(localStorage.getItem('users'));
-        console.log("found local storage userList: "+this.userList);
+        console.log("found local storage userList: " + this.userList);
 
-        if(this.userList == null) {
+        if (this.userList == null) {
             this.userList = [
                 {fname: 'Sara', lname: 'Smith'},
                 {fname: 'Dave', lname: "Thomas"},
@@ -18,10 +21,10 @@ class UserList extends React.Component {
                 {fname: 'Sally', lname: "Jones"}
             ];
 
-            console.log("initialized userList: "+this.userList);
+            console.log("initialized userList: " + this.userList);
         }
 
-        console.log("length of userList: "+this.userList.length);
+        console.log("length of userList: " + this.userList.length);
     }
 
     saveUsersLocalStorage() {
@@ -44,7 +47,7 @@ class UserList extends React.Component {
         var fname = this.refs.fname.value;
         var lname = this.refs.lname.value;
         var entry = {fname: fname, lname: lname};
-        this.setState({user: entry});
+        this.setState({user: entry}); // cause a refresh
         this.userList.push(entry);
     }
 
@@ -58,6 +61,27 @@ class UserList extends React.Component {
         this.deleteUsersLocalStorage();
     }
 
+    deleteUser() {
+        console.log("deleting user from storage");
+        var fname = this.refs.fname.value;
+        var lname = this.refs.lname.value;
+        var entry = {fname: fname, lname: lname};
+
+        var index = -1;
+
+        this.userList.forEach(function (listEntry, listEntryIndex) {
+            if (listEntry.fname == fname && listEntry.lname == lname) {
+                index = listEntryIndex;
+            }
+        });
+        console.log(index);
+
+        if (index > 0) {
+            this.setState({user: ""}); // cause a refresh
+            this.userList.splice(index, 1)
+        }
+    }
+
     render() {
         return (
             <div>
@@ -67,6 +91,7 @@ class UserList extends React.Component {
                 <input ref="fname" type="text" onChange={this.updateUser}/>
                 <input ref="lname" type="text"/>
                 <button onClick={this.addUser}>Add User</button>
+                <button onClick={this.deleteUser}>Delete User</button>
                 <br/>
                 <button onClick={this.saveUsers}>Save Users</button>
                 <button onClick={this.deleteUsers}>Delete Users</button>
