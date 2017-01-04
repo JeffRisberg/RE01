@@ -109,7 +109,9 @@ class ListOptions extends React.Component {
             <div>
                 {this.props.options.map(function (entry, index) {
                     return (
-                        <li key={index}>{entry.fname} {entry.lname}</li>
+                        <li key={index}>
+                            {entry.fname} {entry.lname}
+                        </li>
                     )
                 })}
             </div>
