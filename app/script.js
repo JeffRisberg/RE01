@@ -27,7 +27,7 @@ class UserList extends React.Component {
             console.log("initialized userList: " + this.userList);
         }
 
-        console.log("length of userList: " + this.userList.length);
+        console.log("initial length of userList: " + this.userList.length);
     }
 
     saveUsersLocalStorage() {
@@ -123,4 +123,3 @@ ReactDOM.render(
     <UserList/>,
     document.getElementById('container')
 );
-
