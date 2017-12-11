@@ -24,10 +24,10 @@ class UserList extends React.Component {
                 {fname: 'Sally', lname: "Jones"}
             ];
 
-            console.log("initialized userList: " + this.userList);
+            console.log("Initialized userList: " + this.userList);
         }
 
-        console.log("initial length of userList: " + this.userList.length);
+        console.log("Initial length of userList: " + this.userList.length);
     }
 
     saveUsersLocalStorage() {
