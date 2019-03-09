@@ -15,8 +15,14 @@
   },
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
+
+:=======
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+>>>>>>> e767131bbbb87316617e46f40ce5012a4d813ccd
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -30,8 +36,13 @@
     "file-loader": "^2.0.0",
     "nconf": "^0.10.0",
     "react-addons-test-utils": "^15.6.2",
-    "react-hot-loader": "^4.7.1",
+<<<<<<< HEAD
+    "react-hot-loader": "^4.6.3",
     "webpack": "^4.29.6",
+=======
+    "react-hot-loader": "^4.7.1",
+    "webpack": "^4.29.5",
+>>>>>>> e767131bbbb87316617e46f40ce5012a4d813ccd
     "webpack-cli": "^3.2.3"
   }
 }
