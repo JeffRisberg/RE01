@@ -30,8 +30,8 @@
     "file-loader": "^2.0.0",
     "nconf": "^0.10.0",
     "react-addons-test-utils": "^15.6.2",
-    "react-hot-loader": "^4.8.6",
-    "webpack": "^4.31.0",
+    "react-hot-loader": "^4.8.8",
+    "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   }
 }
