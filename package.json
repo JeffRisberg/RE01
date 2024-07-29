@@ -23,7 +23,7 @@
     "@babel/core": "^7.24.0",
     "@babel/preset-env": "^7.24.0",
     "@babel/preset-react": "^7.24.0",
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^8.2.0",
     "babel-jest": "^29.7.0",
     "babel-loader": "^8.3.0",
     "body-parser": "^1.20.0",
